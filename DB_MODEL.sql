@@ -1,3 +1,9 @@
+/* DROP AND RECREATE DATABASE */
+DROP DATABASE IF EXISTS api_news;
+CREATE DATABASE api_news;
+USE api_news;
+
+/* CREATE TABLE  `authors` */
 CREATE TABLE IF NOT EXISTS `authors` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -10,10 +16,10 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `updated_at` DATETIME NULL DEFAULT NULL,
   `deleted_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
+/* CREATE TABLE  `news` */
 CREATE TABLE IF NOT EXISTS `news` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `author_id` INT NOT NULL,
@@ -25,18 +31,13 @@ CREATE TABLE IF NOT EXISTS `news` (
   `active` TINYINT(1) NOT NULL DEFAULT 1,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT NULL,
-  `deleted_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `news_author_id` (`author_id` ASC),
-  CONSTRAINT `news_author`
-    FOREIGN KEY (`author_id`)
-    REFERENCES `authors` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  INDEX `noticias_autores_id` (`author_id` ASC),
+  CONSTRAINT `noticias_autores` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
+/* CREATE TABLE  `image_news` */
 CREATE TABLE IF NOT EXISTS `image_news` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `news_id` INT NOT NULL,
@@ -48,11 +49,6 @@ CREATE TABLE IF NOT EXISTS `image_news` (
   `deleted_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `image_news_new` (`news_id` ASC),
-  CONSTRAINT `image_news_new`
-    FOREIGN KEY (`news_id`)
-    REFERENCES `news` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  INDEX `imagens_noticias_noticia` (`news_id` ASC),
+  CONSTRAINT `imagens_noticias_noticia` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
