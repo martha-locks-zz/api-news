@@ -10,8 +10,6 @@ use App\Repositories\AbstractRepository;
  * class AuthorRepository
  * @package App\Repositories\Author
  */
-
 class AuthorRepository extends AbstractRepository
 {
-
 }

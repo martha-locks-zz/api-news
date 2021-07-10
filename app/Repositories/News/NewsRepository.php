@@ -10,7 +10,6 @@ use App\Repositories\AbstractRepository;
  * Class NewsRepository
  * @package App\Repositories\News
  */
-
 class NewsRepository extends AbstractRepository
 {
     /**
@@ -43,7 +42,6 @@ class NewsRepository extends AbstractRepository
      * @param string $param
      * @return array
      */
-
     public function findBy(string $param): array
     {
         $query = $this->model::query();
@@ -63,7 +61,6 @@ class NewsRepository extends AbstractRepository
      * @param array $data 
      * @return bool 
      */
-
     public function editBy(string $param, array $data): bool
     {
         if (is_numeric($param)) {
@@ -79,14 +76,13 @@ class NewsRepository extends AbstractRepository
      * @param string $param
      * @return bool
      */
-
     public function deleteBy(string $param): bool
     {
         if (is_numeric($param)) {
             $news = $this->model::destroy($param);
         } else {
             $news = $this->model::where('slug', $param)
-               ->delete();
+                ->delete();
         }
 
         return $news ? true : false;
@@ -96,12 +92,11 @@ class NewsRepository extends AbstractRepository
      * @param int $authorId
      * @return bool
      */
-    
     public function deleteByAuthor(int $authorId): bool
     {
         $news = $this->model::where('author_id', $authorId)
             ->delete();
-        
+
         return $news ? true : false;
     }
 }

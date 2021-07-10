@@ -8,7 +8,6 @@ namespace App\Repositories;
  * Interface RepositoryInterface
  * @package App\Repositories
  */
-
 interface RepositoryInterface
 {
     /**
@@ -22,14 +21,12 @@ interface RepositoryInterface
      * @param array $orderBy
      * @return array
      */
-
     public function findAll(int $limit = 10, array $orderBy = []): array;
 
     /**
      * @param int $id
      * @return array
      */
-
     public function findOneBy(int $id): array;
 
     /**
@@ -37,14 +34,12 @@ interface RepositoryInterface
      * @param array $data 
      * @return bool 
      */
-
     public function editBy(string $param, array $data): bool;
 
     /**
      * @param int $id
      * @return bool
      */
-
     public function delete(int $id): bool;
 
     /**
@@ -54,7 +49,6 @@ interface RepositoryInterface
      * @param  array $orderBy
      * @return array
      */
-
     public function searchBy(
         string $string,
         array $searchFields,

@@ -10,20 +10,17 @@ use Illuminate\Database\Eloquent\Model;
  * Class AbstractRepository
  * @package App\Repositories 
  */
-
 abstract class AbstractRepository implements RepositoryInterface
 {
     /**
      * @var Model
      */
-
     protected Model $model;
 
     /**
      * AbstractRepository Constructor.
      * @param Model $model
      */
-
     public function __construct(Model $model)
     {
         $this->model = $model;
@@ -33,8 +30,6 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param array $data
      * @return array
      */
-
-
     public function create(array $data): array
     {
         return $this->model::create($data)->toArray();
@@ -45,7 +40,6 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param array $orderBy
      * @return array
      */
-
     public function findAll(int $limit = 10, array $orderBy = []): array
     {
         $results = $this->model::query();
@@ -70,7 +64,6 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param int $id
      * @return array
      */
-
     public function findOneBy(int $id): array
     {
         return $this->model::findOrFail($id)
@@ -82,7 +75,6 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param array $data 
      * @return bool 
      */
-
     public function editBy(string $param, array $data): bool
     {
         $result = $this->model::find($param)
@@ -94,7 +86,6 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param int $id
      * @return bool
      */
-
     public function delete(int $id): bool
     {
         return $this->model::destroy($id) ? true : false;
@@ -107,7 +98,6 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param  array $orderBy
      * @return array
      */
-
     public function searchBy(string $string, array $searchFields, int $limit = 10, array $orderBy = []): array
     {
         $results = $this->model::where($searchFields[0], 'like', '%' . $string . '%');
