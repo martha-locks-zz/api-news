@@ -10,19 +10,16 @@ use Illuminate\Database\Eloquent\Model;
  * Class ImageNews
  * @package App\Models\ImageNews
  */
-
 class ImageNews extends Model
 {
     /**
      * @var string
      */
-
     protected $table = 'image_news';
 
     /**
      * @var string[]
      */
-    
     protected $fillable = [
         'news_id',
         'image',
@@ -31,16 +28,14 @@ class ImageNews extends Model
         'created_at'
     ];
 
-     /**
-    * @var bool
-    */
-
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
     /**
      * @var array
      */
-    
     public array $rules = [
         'news_id' => 'required|numeric',
         'image' => 'required',

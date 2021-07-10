@@ -9,14 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Author
  * @package App\Models\Author
-*/
-
+ */
 class Author extends Model
 {
     /**
      * @var string
      */
-
     protected $table = 'authors';
 
     protected $fillable = [
@@ -32,7 +30,6 @@ class Author extends Model
     /**
      * @var string[]
      */
-
     protected $hidden = [
         'password'
     ];
@@ -40,28 +37,24 @@ class Author extends Model
     /**
      * @var bool 
      */
-    
-     public $timestamps = false;
+    public $timestamps = false;
 
-     /**
-      * @var array/string[]
-      */
-
-     public array $rules = [
+    /**
+     * @var array/string[]
+     */
+    public array $rules = [
         'name' => 'required|min:2|max:45|alpha',
         'lastname' => 'required|min:2|max:60|alpha',
         'email' => 'required|email|max:100|email:rfc,dns',
         'password' => 'required|between:6,12',
         'gender' => 'required|alpha|max:1'
-     ];
+    ];
 
-     /**
-      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-      */
-
-     public function news()
-     {
-         return $this->hasMany(News::class);
-     }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function news()
+    {
+        return $this->hasMany(News::class);
+    }
 }
-

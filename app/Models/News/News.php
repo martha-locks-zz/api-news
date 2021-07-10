@@ -11,55 +11,49 @@ use Illuminate\Database\Eloquent\Model;
  * Class News 
  * @package App\Models\News
  */
-
 class News extends Model
 {
 
-/**
- * @var string
- */
-
+  /**
+   * @var string
+   */
   protected $table = 'news';
 
   /**
    * @var string
    */
-
   protected $fillable = [
-      'author_id',
-      'title',
-      'subtitle',
-      'description',
-      'published_at',
-      'slug',
-      'active',
-      'created_at'
-    ];
-   
-   /**
-    * @var bool
-    */
+    'author_id',
+    'title',
+    'subtitle',
+    'description',
+    'published_at',
+    'slug',
+    'active',
+    'created_at'
+  ];
 
-    public $timestamps = false;
+  /**
+   * @var bool
+   */
+  public $timestamps = false;
 
-    /**
-     * @var array/string[]
-     */
-    
-     public array $rules = [
-      'author_id' => 'required|numeric',
-      'title' => 'required|min:20|max:100',
-      'subtitle' => 'required|min:20|max:155',
-      'description' => 'required|min:100',
-      'slug' => 'required'
-    ];
+  /**
+   * @var array/string[]
+   */
+  public array $rules = [
+    'author_id' => 'required|numeric',
+    'title' => 'required|min:20|max:100',
+    'subtitle' => 'required|min:20|max:155',
+    'description' => 'required|min:100',
+    'slug' => 'required'
+  ];
 
-     /**
-      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-      */
-
-    public function image()
-    {
-        return $this->hasMany(ImageNews::class);
-    }
+  /**
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function image()
+  {
+    return $this->hasMany(ImageNews::class);
+  }
 }
