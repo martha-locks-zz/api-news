@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-//http:localhost:8081/api/v1
+//http:localhost:8080/api/v1
 $router->group(['prefix' => 'api/v1', 'namespace' => 'V1\Author'], function () use ($router) {
     $router->post('/authors', [
         'uses' => 'AuthorController@create'
