@@ -15,7 +15,7 @@ class ImageNewsService extends AbstractService
 {
     private ImageNewsRepository $repository;
 
-    public function __constructor(ImageNewsRepository $repository)
+    public function __construct(ImageNewsRepository $repository)
     {
         $this->repository = $repository;
     }

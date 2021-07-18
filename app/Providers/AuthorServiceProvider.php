@@ -6,7 +6,7 @@ namespace App\Providers;
 
 use App\Models\Author\Author;
 use App\Repositories\Author\AuthorRepository;
-use App\Services\AuthorService;
+use App\Services\Author\AuthorService;
 use Illuminate\Support\ServiceProvider;
 
 class AuthorServiceProvider extends ServiceProvider

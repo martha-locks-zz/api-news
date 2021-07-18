@@ -16,7 +16,7 @@ class NewsService extends AbstractService
 
     private NewsRepository $repository;
 
-    public function __constructor(NewsRepository $repository)
+    public function __construct(NewsRepository $repository)
     {
         $this->repository = $repository;
     }

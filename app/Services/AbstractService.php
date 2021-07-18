@@ -15,7 +15,7 @@ abstract class AbstractService implements ServiceInterface
 
     protected RepositoryInterface $repository;
 
-    public function __constructor(RepositoryInterface $repository)
+    public function __construct(RepositoryInterface $repository)
     {
         $this->repository = $repository;
     }

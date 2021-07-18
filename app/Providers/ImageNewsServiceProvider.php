@@ -9,7 +9,7 @@ use App\Repositories\ImageNews\ImageNewsRepository;
 use App\Services\ImageNews\ImageNewsService;
 use Illuminate\Support\ServiceProvider;
 
-class AuthorServiceProvider extends ServiceProvider
+class ImageNewsServiceProvider extends ServiceProvider
 {
     public function register()
     {
